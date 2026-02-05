@@ -16,19 +16,8 @@
     }
 
     body {
-      background: url('driply-bg.jpg') no-repeat center top;
-      background-size: cover;
+      background: #0f0f0f;
       color: #f2f2f2;
-      position: relative;
-    }
-
-    /* overlay */
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.75);
-      z-index: -1;
     }
 
     a {
@@ -36,6 +25,7 @@
       color: inherit;
     }
 
+    /* HEADER */
     header {
       padding: 20px 40px;
       display: flex;
@@ -61,16 +51,38 @@
       opacity: 0.8;
     }
 
-    nav a:hover { opacity: 1; }
+    nav a:hover {
+      opacity: 1;
+    }
 
+    /* HERO / BANNER */
     .hero {
-      min-height: 90vh;
+      min-height: 100vh;
+      width: 100%;
+      background: url('driply-bg.jpg') center center no-repeat;
+      background-size: cover;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
       padding: 20px;
+      position: relative;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.65);
+      z-index: 0;
+    }
+
+    .hero h1,
+    .hero p,
+    .hero a {
+      position: relative;
+      z-index: 1;
     }
 
     .hero h1 {
@@ -80,7 +92,7 @@
 
     .hero p {
       max-width: 600px;
-      opacity: 0.8;
+      opacity: 0.85;
       margin-bottom: 30px;
     }
 
@@ -108,6 +120,7 @@
       text-align: center;
     }
 
+    /* PRODUCTS */
     .products {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -136,6 +149,7 @@
       opacity: 0.7;
     }
 
+    /* ABOUT */
     .about {
       max-width: 800px;
       margin: auto;
@@ -143,6 +157,7 @@
       opacity: 0.85;
     }
 
+    /* CONTACT */
     .contact {
       text-align: center;
     }
@@ -160,10 +175,33 @@
       opacity: 0.6;
     }
 
-    @media(max-width: 768px) {
-      .hero h1 { font-size: 38px; }
-      header { flex-direction: column; }
-      nav { margin-top: 15px; }
+    /* MOBILE */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+      }
+
+      nav {
+        margin-top: 15px;
+      }
+
+      .hero {
+        background-position: center top;
+        min-height: 90vh;
+      }
+
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      .hero p {
+        font-size: 14px;
+        padding: 0 10px;
+      }
+
+      section {
+        padding: 60px 20px;
+      }
     }
   </style>
 </head>
@@ -192,8 +230,7 @@
   <h2 class="section-title">Our Products</h2>
 
   <div class="products">
-
-    <a class="card" href="https://wa.me/918976367073?text=Hi%20Driply%20👋%20I’m%20interested%20in%20Custom%20Tees.%20Please%20share%20designs%20and%20pricing." target="_blank">
+    <a class="card" href="https://wa.me/918976367073?text=Hi%20Driply%20👋%20I’m%20interested%20in%20Custom%20Tees.%20Please%20share%20details%20and%20pricing." target="_blank">
       <h3>Custom Tees</h3>
       <p>Personalized designs. Street-ready comfort.</p>
     </a>
@@ -207,7 +244,6 @@
       <h3>Hoodies & Sweatshirts</h3>
       <p>Heavy drip. Clean grayscale finish.</p>
     </a>
-
   </div>
 </section>
 
