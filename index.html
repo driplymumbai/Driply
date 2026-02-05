@@ -1,133 +1,176 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Driply | Custom Streetwear</title>
+
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
-    body { 
-      background: url('driply-bg.jpg') no-repeat center center fixed; 
-      background-size: cover; 
-      color: #f2f2f2; 
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    body {
+      background: url('driply-bg.jpg') no-repeat center top;
+      background-size: cover;
+      color: #f2f2f2;
       position: relative;
-    }/* overlay for readability */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.75);
-  z-index: -1;
-}
-a { text-decoration: none; color: inherit; }
+    }
 
-header {
-  padding: 20px 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid #333;
-}
+    /* overlay */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      z-index: -1;
+    }
 
-.logo {
-  font-size: 32px;
-  font-weight: 700;
-  letter-spacing: 2px;
-}
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-nav a {
-  margin-left: 25px;
-  font-size: 14px;
-  text-transform: uppercase;
-  opacity: 0.8;
-}
+    header {
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #333;
+      position: sticky;
+      top: 0;
+      background: rgba(0,0,0,0.85);
+      z-index: 10;
+    }
 
-nav a:hover { opacity: 1; }
+    .logo {
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
 
-.hero {
-  height: 90vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 20px;
-}
+    nav a {
+      margin-left: 25px;
+      font-size: 14px;
+      text-transform: uppercase;
+      opacity: 0.8;
+    }
 
-.hero h1 {
-  font-size: 56px;
-  margin-bottom: 20px;
-}
+    nav a:hover { opacity: 1; }
 
-.hero p {
-  max-width: 600px;
-  opacity: 0.8;
-  margin-bottom: 30px;
-}
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
 
-.btn {
-  padding: 15px 35px;
-  border: 1px solid #f2f2f2;
-  text-transform: uppercase;
-  font-size: 14px;
-  transition: 0.3s;
-}
+    .hero h1 {
+      font-size: 56px;
+      margin-bottom: 20px;
+    }
 
-.btn:hover { background: #f2f2f2; color: #0f0f0f; }
+    .hero p {
+      max-width: 600px;
+      opacity: 0.8;
+      margin-bottom: 30px;
+    }
 
-section { padding: 80px 40px; }
+    .btn {
+      padding: 15px 35px;
+      border: 1px solid #f2f2f2;
+      text-transform: uppercase;
+      font-size: 14px;
+      transition: 0.3s;
+      display: inline-block;
+    }
 
-.section-title {
-  font-size: 36px;
-  margin-bottom: 40px;
-  text-align: center;
-}
+    .btn:hover {
+      background: #f2f2f2;
+      color: #0f0f0f;
+    }
 
-.products {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
-}
+    section {
+      padding: 80px 40px;
+    }
 
-.card {
-  border: 1px solid #333;
-  padding: 20px;
-  text-align: center;
-}
+    .section-title {
+      font-size: 36px;
+      margin-bottom: 40px;
+      text-align: center;
+    }
 
-.card h3 { margin: 15px 0 10px; }
-.card p { font-size: 14px; opacity: 0.7; }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
 
-.about {
-  max-width: 800px;
-  margin: auto;
-  text-align: center;
-  opacity: 0.85;
-}
+    .card {
+      border: 1px solid #333;
+      padding: 30px 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: 0.3s;
+    }
 
-.contact {
-  text-align: center;
-}
+    .card:hover {
+      background: rgba(255,255,255,0.05);
+      transform: translateY(-5px);
+    }
 
-.contact p { margin-bottom: 10px; opacity: 0.8; }
+    .card h3 {
+      margin: 15px 0 10px;
+    }
 
-footer {
-  border-top: 1px solid #333;
-  padding: 20px;
-  text-align: center;
-  font-size: 13px;
-  opacity: 0.6;
-}
+    .card p {
+      font-size: 14px;
+      opacity: 0.7;
+    }
 
-@media(max-width: 768px) {
-  .hero h1 { font-size: 38px; }
-  header { flex-direction: column; }
-  nav { margin-top: 15px; }
-}
+    .about {
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+      opacity: 0.85;
+    }
 
+    .contact {
+      text-align: center;
+    }
+
+    .contact p {
+      margin-bottom: 10px;
+      opacity: 0.8;
+    }
+
+    footer {
+      border-top: 1px solid #333;
+      padding: 20px;
+      text-align: center;
+      font-size: 13px;
+      opacity: 0.6;
+    }
+
+    @media(max-width: 768px) {
+      .hero h1 { font-size: 38px; }
+      header { flex-direction: column; }
+      nav { margin-top: 15px; }
+    }
   </style>
 </head>
-<body><header>
+
+<body>
+
+<header>
   <div class="logo">DRIPLY</div>
   <nav>
     <a href="#home">Home</a>
@@ -135,37 +178,59 @@ footer {
     <a href="#about">About</a>
     <a href="#contact">Contact</a>
   </nav>
-</header><section class="hero" id="home">
+</header>
+
+<section class="hero" id="home">
   <h1>WEAR YOUR DRIP</h1>
-  <p>Custom hand‑crafted streetwear. Tees, shoes, hoodies & sweatshirts designed to match your vibe.</p>
-  <a class="btn" href="https://wa.me/918976367073" target="_blank">Order on WhatsApp</a>
-</section><section id="shop">
+  <p>Custom hand-crafted streetwear. Tees, shoes, hoodies & sweatshirts designed to match your vibe.</p>
+  <a class="btn" href="https://wa.me/918976367073?text=Hi%20Driply%20👋%20I’m%20interested%20in%20placing%20an%20order.%20Please%20share%20details." target="_blank">
+    Order on WhatsApp
+  </a>
+</section>
+
+<section id="shop">
   <h2 class="section-title">Our Products</h2>
+
   <div class="products">
-    <div class="card">
+
+    <a class="card" href="https://wa.me/918976367073?text=Hi%20Driply%20👋%20I’m%20interested%20in%20Custom%20Tees.%20Please%20share%20designs%20and%20pricing." target="_blank">
       <h3>Custom Tees</h3>
-      <p>Personalized designs. Street‑ready comfort.</p>
-    </div>
-    <div class="card">
-      <h3>Hand‑Painted Shoes</h3>
-      <p>Anime, graffiti & one‑of‑one art.</p>
-    </div>
-    <div class="card">
+      <p>Personalized designs. Street-ready comfort.</p>
+    </a>
+
+    <a class="card" href="https://wa.me/918976367073?text=Hi%20Driply%20👋%20I’m%20interested%20in%20Hand-Painted%20Shoes.%20Please%20share%20details." target="_blank">
+      <h3>Hand-Painted Shoes</h3>
+      <p>Anime, graffiti & one-of-one art.</p>
+    </a>
+
+    <a class="card" href="https://wa.me/918976367073?text=Hi%20Driply%20👋%20I’m%20interested%20in%20Hoodies%20and%20Sweatshirts.%20Please%20share%20options." target="_blank">
       <h3>Hoodies & Sweatshirts</h3>
       <p>Heavy drip. Clean grayscale finish.</p>
-    </div>
+    </a>
+
   </div>
-</section><section id="about">
+</section>
+
+<section id="about">
   <h2 class="section-title">About Driply</h2>
   <p class="about">
-    Driply is a streetwear brand born from creativity and culture. Every piece is customized, hand‑finished and made to stand out — without shouting. We don’t follow trends. We paint them.
+    Driply is a streetwear brand born from creativity and culture. Every piece is customized, hand-finished and made to stand out — without shouting. We don’t follow trends. We paint them.
   </p>
-</section><section id="contact" class="contact">
+</section>
+
+<section id="contact" class="contact">
   <h2 class="section-title">Contact Us</h2>
   <p>📞 WhatsApp: +91 8976367073</p>
   <p>📧 Email: driplymumbai@gmail.com</p>
-  <a class="btn" href="https://wa.me/918976367073" target="_blank">Chat Now</a>
-</section><footer>
+
+  <a class="btn" href="https://wa.me/918976367073?text=Hi%20Driply%20👋%20I’d%20like%20to%20know%20more%20about%20your%20products." target="_blank">
+    Chat Now
+  </a>
+</section>
+
+<footer>
   © 2026 Driply. All Rights Reserved.
-</footer></body>
+</footer>
+
+</body>
 </html>
